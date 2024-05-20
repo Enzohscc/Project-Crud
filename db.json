@@ -1,9 +1,12 @@
 {
-    "products": [
-
-        {
-            "id": "1",
-            "title": "Produto de Teste"
-        }
-    ]
+  "products": [
+    {
+      "id": "1",
+      "title": "Produto de Teste"
+    },
+    {
+      "id": "debb",
+      "title": "3gss"
+    }
+  ]
 }
