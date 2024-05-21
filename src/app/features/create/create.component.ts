@@ -3,8 +3,10 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Title } from '@angular/platform-browser';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatButtonModule } from '@angular/material/button';
 import { ProductsService } from '../../shared/services/products.service';
+import { Router } from '@angular/router';
 
 
 
@@ -20,6 +22,10 @@ export class CreateComponent {
 
   productsService = inject(ProductsService);
 
+  matSnackBar = inject(MatSnackBar);
+
+  router = inject(Router);
+
   form = new FormGroup({
     title: new FormControl<string>(
       '', {
@@ -33,7 +39,9 @@ export class CreateComponent {
       title: this.form.controls.title.value
     })
     .subscribe(() => {
-      alert('Sucesso!');
+      this.matSnackBar.open('Produto Criado Com Sucesso!', 'OK');
     });
+
+    this.router.navigateByUrl('/');
   }
 }
